@@ -1,8 +1,8 @@
-# giovaresco.zsh-theme
+# giov.zsh-theme
 #
 # Author : Julien Giovaresco
 # URL    : http://julien.giovaresco.fr/
-# Repo   : https://github.com/jgiovaresco/zsh-stuffs.git
+# Repo   : https://github.com/jgiovaresco/oh-my-zsh.git.git
 #
 # Based on:         af-magic.zsh-theme of Andy Fleming
 # Created on:		Sept 16, 2013
@@ -11,10 +11,10 @@
 # Show some environment variables for dev
 function dev_prompt_info() {
     mvn -version | awk 'NR == 1' | cut -d' ' -f3       | read MVN_VERSION
-    mvn -version | awk 'NR == 3' | cut -d' ' -f3       | read JVM_MVN_VERSION
+#    mvn -version | awk 'NR == 3' | cut -d' ' -f3       | read JVM_MVN_VERSION
     java -version 2>&1 | awk 'NR == 1' | cut -d' ' -f3 | read JVM_VERSION
 
-    echo "Maven (${MVN_VERSION}) JAVA_HOME (${JVM_MVN_VERSION}) JAVA (${JVM_VERSION})"
+    echo "Maven (${MVN_VERSION}) JAVA (${JVM_VERSION})"
 }
 
 
@@ -39,7 +39,7 @@ eval my_orange='$FG[214]'
 
 # right prompt
 #RPROMPT='$my_gray%n@%m%{$reset_color%}%'
-RPROMPT='$my_orange$(dev_prompt_info)%{$reset_color%}%'
+#RPROMPT='$my_orange$(dev_prompt_info)%{$reset_color%}%'
 
 # git settings
 ZSH_THEME_GIT_PROMPT_PREFIX="$FG[075](branch:"
