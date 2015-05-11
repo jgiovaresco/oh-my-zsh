@@ -25,6 +25,8 @@
 W10g_DOM_DIR=/home/bea/user_projects/domains
 # Directory containing domains of Weblogic 11g
 W11g_DOM_DIR=/home/bea11g/user_projects/domains
+# Directory containing domains of Weblogic 12g
+W12g_DOM_DIR=/home/bea12/user_projects/domains
 
 # Command in the domain directory used to start weblogic server
 COMMAND="./startWebLogic.sh"
@@ -175,6 +177,13 @@ function listWls11gCompletions {
         `printDomains ${W11g_DOM_DIR}`
     );
 }
+function listWls12gCompletions {
+     reply=(
+        -d -p -c
+        --debug --port --clean --jmx
+        `printDomains ${W12g_DOM_DIR}`
+    );
+}
 
 function wls10g()
 {
@@ -184,6 +193,11 @@ function wls11g()
 {
 	wlsstart ${W11g_DOM_DIR} "$@"
 }
+function wls12g()
+{
+	wlsstart ${W12g_DOM_DIR} "$@"
+}
 
 compctl -K listWls10gCompletions wls10g
 compctl -K listWls11gCompletions wls11g
+compctl -K listWls12gCompletions wls12g
